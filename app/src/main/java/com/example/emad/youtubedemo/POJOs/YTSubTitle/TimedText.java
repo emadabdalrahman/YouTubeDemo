@@ -1,4 +1,4 @@
-package com.example.emad.youtubedemo.POJOs;
+package com.example.emad.youtubedemo.POJOs.YTSubTitle;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Root;
