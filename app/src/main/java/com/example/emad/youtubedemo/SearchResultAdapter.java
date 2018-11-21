@@ -75,11 +75,6 @@ public class SearchResultAdapter extends Adapter<SearchResultAdapter.VHolder> {
     }
 
     @Override
-    public boolean onFailedToRecycleView(@NonNull VHolder holder) {
-        return super.onFailedToRecycleView(holder);
-    }
-
-    @Override
     public void onDetachedFromRecyclerView(@NonNull RecyclerView recyclerView) {
         super.onDetachedFromRecyclerView(recyclerView);
         mContext.clear();
