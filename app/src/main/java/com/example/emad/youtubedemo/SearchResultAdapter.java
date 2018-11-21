@@ -43,6 +43,8 @@ public class SearchResultAdapter extends Adapter<SearchResultAdapter.VHolder> {
      */
     public void updateAdapter(List<Item> items) {
         DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffCallback(this.mItems,items));
+        this.mItems.clear();
+        this.mItems = items;
         result.dispatchUpdatesTo(this);
     }
 
@@ -70,6 +72,11 @@ public class SearchResultAdapter extends Adapter<SearchResultAdapter.VHolder> {
         Glide.with(mContext.get())
                 .load(mItems.get(i).getSnippet().getThumbnails().getHigh().getUrl())
                 .into(vHolder.mThumbnail);
+    }
+
+    @Override
+    public boolean onFailedToRecycleView(@NonNull VHolder holder) {
+        return super.onFailedToRecycleView(holder);
     }
 
     @Override
