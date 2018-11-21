@@ -104,8 +104,12 @@ public class SearchFragment extends Fragment implements Observer<YouTubeSearch>,
 
     @Override
     public void onChanged(@Nullable YouTubeSearch youTubeSearch) {
-        mResultAdapter = new SearchResultAdapter(getContext(), youTubeSearch.getItems(), this);
-        mRecyclerView.setAdapter(mResultAdapter);
+        if (mResultAdapter == null) {
+            mResultAdapter = new SearchResultAdapter(getContext(), youTubeSearch.getItems(), this);
+            mRecyclerView.setAdapter(mResultAdapter);
+        } else {
+            mResultAdapter.updateAdapter(youTubeSearch.getItems());
+        }
     }
 
     @Override
